@@ -65,12 +65,12 @@ public class MainMenuManager : MonoBehaviour
     void Update()
     {
 
-        counter += Time.deltaTime;
+        /*counter += Time.deltaTime;
         if (counter > 75f)
         {
             counter = 0;
             splineController.FollowSpline();
-        }
+        }*/
 
         if (waitAnyKey)
         {
@@ -83,7 +83,18 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
-    public void Play() { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);}
+    public void Play() {
+        StartCoroutine(PlayAsync());
+    }
+
+    IEnumerator PlayAsync() {
+        for (float t = 0.0f; t < fadeTime;) {
+            t += Time.deltaTime;
+            fadePanel.color = new Color(0f, 0f, 0f, t / (fadeTime));
+            yield return null;
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
     public void Quit() { Application.Quit();}
 

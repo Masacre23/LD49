@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Interactuable
+  - NPC
+  - Flammable
+  - Boss
+  - Window
   layers:
   - Default
   - TransparentFX
@@ -11,13 +16,13 @@ TagManager:
   - 
   - Water
   - UI
+  - Flammable
   - 
   - 
   - 
   - 
   - 
-  - 
-  - 
+  - PostProcess
   - 
   - 
   - 
